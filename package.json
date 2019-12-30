@@ -1,0 +1,16 @@
+{
+  "name": "my-website-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/www.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^6.0.3"
+  }
+}
