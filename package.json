@@ -5,6 +5,7 @@
   "main": "bin/www.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
+    "prod": "cross-env NODE_ENV=production pm2 start ./bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
