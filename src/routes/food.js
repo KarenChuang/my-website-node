@@ -31,21 +31,25 @@ function foodHandle (req, res) {
   }
 
   if(method === 'POST' && req.path === '/api/foods/update') {
-    const res = updateFood(req.body, id)
-    if(res) {
-      return new SuccessModel(res)
-    } else {
-      return new ErrorModel('update error')
-    }
+    const result = updateFood(id, req.body)
+    return result.then(res => {
+      if(res) {
+        return new SuccessModel()
+      } else {
+        return new ErrorModel('update error')
+      }
+    })
   }
 
   if(method === 'POST' && req.path === '/api/foods/delete') {
-    const res = deleteFood(id)
-    if(res) {
-      return new SuccessModel(res)
-    } else {
-      return new ErrorModel('delete error')
-    }
+    const result = deleteFood(id)
+    return result.then(res => {
+      if(res) {
+        return new SuccessModel()
+      } else {
+        return new ErrorModel('delete error')
+      }
+    })
   }
 }
 

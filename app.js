@@ -42,27 +42,39 @@ const serverHandler = (req, res) => {
   req.path = url.split('?')[0]
   req.query = querystring.parse(url.split('?')[1])
 
+  req.cookie = {}
+  const cookieStr = req.headers.cookie || ''
+  cookieStr.split(';').forEach(item => {
+    if(!item) return
+    const key = item.split('=')[0]
+    const value = item.split('=')[1]
+    req.cookie[key] = value
+  })
+
+  console.log(req.cookie);
+  
+
   // 处理post data
   return getPostData(req).then((postData) => {
     req.body = postData
 
+    // foods
     const foodData = foodHandle(req, res)
-    
     if(foodData) {
       foodData.then(response => {
         res.end(JSON.stringify(response))
-        return
       })
+      return
     }
 
-    // vlog
+    // vlogs
     const vlogData = vlogHandle(req, res)
     if(vlogData) {
       res.end(JSON.stringify(vlogData))
       return
     }
 
-    // movie
+    // movies
     const movieData = movieHandle(req, res)
     if(movieData) {
       res.end(JSON.stringify(movieData))

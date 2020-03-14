@@ -1,8 +1,4 @@
-const data = require('../data/food')
-const fs = require('fs')
-const path = require('path')
 const { exec } = require('../db/mysql')
-
 
 const getList = (name, location) => {
   let sql = `select * from foods where 1=1 `
@@ -26,9 +22,6 @@ const getDetail = (id) => {
 }
 
 const newFood = (foodData = {}) => {
-  console.log('foodData', foodData);
-  console.log('foodData-end');
-
   const { name, restaurant, location, date } = foodData
   const sql = `
     insert into foods (name, restaurant, location, date) values ('${name}', '${restaurant}', '${location}', '${date}')
@@ -41,18 +34,27 @@ const newFood = (foodData = {}) => {
         id: insetData.insertId
       }
     })
-    return
   }
 }
 
-const updateFood = (id, food = {}) => {
-  console.log('update-food- id', food);
-  return true
+const updateFood = (id, foodData = {}) => {
+  const { name, restaurant, location, date } = foodData
+
+  const sql = `update foods set name='${name}', restaurant='${restaurant}', location='${location}', date='${date}' where id=${id}`
+  if(name && restaurant && location && date) {
+    return exec(sql).then(updateData => {
+      return updateData.affectedRows > 0
+    })
+  }
 }
 
 const deleteFood = (id) => {
-  console.log('delete-food- id', id);
-  return true
+  if(id) {
+    const sql = `delete from foods where id=${id}`
+    return exec(sql).then(deleteData => {
+      return deleteData.affectedRows > 0
+    })
+  }
 }
 
 module.exports = {
