@@ -7,7 +7,7 @@ const db = {
       location: '上海',
       restaurant: 'Alimentari & Degusteria',
       date: '2019.8.19',
-      pic: 'http://ww1.sinaimg.cn/mw690/6ca4599fgy1gcunmq5rk8j21400u0n0q.jpg',
+      pic: 'http://q78og4x7l.bkt.clouddn.com/IMG_0128.JPG?imageslim',
       tags: ['Brunch']
     },
     {
@@ -16,7 +16,7 @@ const db = {
       location: '上海',
       date: '2019.7.3',
       restaurant: '赤坂亭',
-      pic: 'http://ww1.sinaimg.cn/mw690/6ca4599fgy1gcunnvu4wjj23402c0npd.jpg',
+      pic: 'http://q78og4x7l.bkt.clouddn.com/3921584258112_.pic_hd.jpg?imageslim',
       tags: ['日料', '三文鱼']
     }
   ]
