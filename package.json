@@ -4,7 +4,7 @@
   "description": "",
   "main": "bin/www.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
+    "dev": "cross-env NODE_ENV=dev nodemon ./index.js",
     "prod": "cross-env NODE_ENV=production pm2 start ./bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,10 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^8.0.8",
     "mysql": "^2.17.1"
   }
 }
