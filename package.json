@@ -5,7 +5,7 @@
   "main": "bin/www.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon ./index.js",
-    "prod": "cross-env NODE_ENV=production pm2 start ./bin/www.js",
+    "prod": "cross-env NODE_ENV=production pm2 start ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
     "cross-env": "^6.0.3"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "body-parser": "^1.19.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",

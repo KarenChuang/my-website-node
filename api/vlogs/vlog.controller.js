@@ -34,5 +34,9 @@ const db = {
 
 exports.getAll = async ctx => {
   ctx.status = 200;
-  ctx.body = db.vlogs;
+  ctx.body = {
+    data: db.vlogs,
+    code: ctx.status,
+    msg: 'success'
+  }
 };

@@ -23,6 +23,10 @@ const db = {
 }
 
 exports.getAll = async ctx => {
-  ctx.status = 200
-  ctx.body = db.foods
-}
+  ctx.status = 200;
+  ctx.body = {
+    data: db.foods,
+    code: ctx.status,
+    msg: 'success'
+  }
+};

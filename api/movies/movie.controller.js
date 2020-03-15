@@ -38,5 +38,9 @@ const db = {
 
 exports.getAll = async ctx => {
   ctx.status = 200;
-  ctx.body = db.movies;
+  ctx.body = {
+    data: db.movies,
+    code: ctx.status,
+    msg: 'success'
+  }
 };
